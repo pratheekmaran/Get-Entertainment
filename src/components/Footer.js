@@ -6,7 +6,7 @@ const FooterBar = styled.div`
     text-align: center;
     margin-top: 100px;
     position: relative;
-    top: 380px;
+    top: 368px;
     padding: 8px;
 `;
 
