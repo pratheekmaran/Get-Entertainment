@@ -5,6 +5,8 @@ import Axios from 'axios';
 import MovieInfoList from './components/MovieInfoList';
 import Footer from './components/Footer';
 
+export const API_KEY = "f494a764";
+
 const Header = styled.div`
   display: flex;
   flex-direction: row;
@@ -52,7 +54,7 @@ function App() {
   const fetchData = async (searchString) => {
     try {
       const response = await Axios.get(
-        `https://www.omdbapi.com/?s=${searchString}&apikey=${process.env.API_KEY}`,
+        `https://www.omdbapi.com/?s=${searchString}&apikey=${API_KEY}`,
       );
       updateMovieList(response.data.Search);
     } catch (error) {
