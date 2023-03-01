@@ -78,7 +78,7 @@ function MovieInfoList(props) {
     <Container>
       {movieInfo ? (
         <>
-          <CoverImage src={movieInfo?.Poster} alt={movieInfo?.Title} />
+          <CoverImage src={movieInfo.Poster} alt={movieInfo?.Title} />
           <InfoColumn>
             <MovieName>
               {movieInfo?.Type}: <span>{movieInfo?.Title}</span>
