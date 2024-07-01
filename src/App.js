@@ -5,7 +5,7 @@ import Axios from 'axios';
 import MovieInfoList from './components/MovieInfoList';
 import Footer from './components/Footer';
 
-export const API_KEY = "f494a764";
+
 
 const Header = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const Input = styled.input`
 `;
 
 function App() {
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const [timeoutId, setTimeoutId] = useState();
   const [movieList, updateMovieList] = useState([]);
   const [selectedMovie, onMovieSelect] = useState();
@@ -68,18 +68,18 @@ function App() {
     const timeout = setTimeout(() => fetchData(e.target.value), 500);
     setTimeoutId(timeout);
   };
-  
+
   return (
     <div>
       <Header className='App'>
         <MovieImage src='/logoName.png'></MovieImage>
       </Header>
       <Searchbox>
-        <Input type='text' placeholder='Search Movies' value={search} onChange={onTextChange}></Input>
+        <Input type='text' placeholder='Search Movies / Series' value={search} onChange={onTextChange}></Input>
       </Searchbox>
       {
-        selectedMovie && <MovieInfoList selectedMovie={selectedMovie}
-        onMovieSelect = {onMovieSelect}/>
+        movieList && selectedMovie && <MovieInfoList selectedMovie={selectedMovie}
+        onMovieSelect = {onMovieSelect} movieList={movieList} updateMovieList={updateMovieList}/>
       }
       <MovieList>
         {

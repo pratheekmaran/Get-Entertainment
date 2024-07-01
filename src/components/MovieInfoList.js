@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { API_KEY } from '../App';
 
+
 const Container = styled.div`
     display: flex;
     flex-dirextion: row;
@@ -65,15 +66,23 @@ const Close = styled.span`
   opacity: 0.8;
 `;
 
+
+// const changeMovie = async(() => {
+//   axios.get(
+//     `https://www.omdbapi.com/?i=${selectedMovie}&apikey=${API_KEY}`)
+//     .then(response => setMovieInfo(response.data))
+//     .catch(error => console.log(error));
+//   });
+
 function MovieInfoList(props) {
     const [movieInfo, setMovieInfo] = useState();
-    const {selectedMovie} = props; 
+    const {selectedMovie} = props;
     useEffect(() => {
-        axios.get(
+      axios.get(
         `https://www.omdbapi.com/?i=${selectedMovie}&apikey=${API_KEY}`)
         .then(response => setMovieInfo(response.data))
         .catch(error => console.log(error));
-    }, [selectedMovie]);
+    }, [selectedMovie]/*, [movieList]*/);
   return (
     <Container>
       {movieInfo ? (
